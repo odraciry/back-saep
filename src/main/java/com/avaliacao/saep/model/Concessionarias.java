@@ -11,6 +11,6 @@ import lombok.Data;
 public class Concessionarias {
 	@Id
 	@Column(unique = true)
-	private long id;
+	private Long id;
 	private String concessionaria;
 }

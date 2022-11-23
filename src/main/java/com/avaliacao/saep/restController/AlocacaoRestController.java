@@ -16,15 +16,21 @@ import com.avaliacao.saep.repository.AlocacaoRepository;
 public class AlocacaoRestController {
 	@Autowired
 	private AlocacaoRepository repository;
-	
-	@RequestMapping(value="/getAlocacoes", method = RequestMethod.GET)
-	public Iterable<Alocacao> getAllAlocacoes(){
+
+	@RequestMapping(value = "/getAlocacoes", method = RequestMethod.GET)
+	public Iterable<Alocacao> getAllAlocacoes() {
 		return repository.findAll();
 	}
-	
-	@RequestMapping(value="/getOneAlocacao/{id}", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/getOneAlocacao/{id}", method = RequestMethod.GET)
 	public Optional<Alocacao> getAlocacao(@PathVariable("id") long id) {
 		return repository.findById(id);
 	}
-	
+
+	@RequestMapping(value = "/venda/{id}", method = RequestMethod.PUT)
+	public void venda(@PathVariable("id") Long id) {
+		Alocacao alocacao = repository.findByAutomovel(id);
+		alocacao.setQuantidade(alocacao.getQuantidade() - 1);
+		repository.save(alocacao);
+	}
 }

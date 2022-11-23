@@ -3,9 +3,9 @@ package com.avaliacao.saep.repository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
-import com.avaliacao.saep.model.Alocacao;
+import com.avaliacao.saep.model.Concessionarias;
 
 @Repository
-public interface AlocacaoRepository extends PagingAndSortingRepository<Alocacao, Long>{
-	public Alocacao findByAutomovel(Long id);
+public interface ConcessionariaRespository extends PagingAndSortingRepository<Concessionarias, Long>{
+
 }

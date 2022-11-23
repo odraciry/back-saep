@@ -11,7 +11,7 @@ import lombok.Data;
 public class Automoveis {
 	@Id
 	@Column(unique = true)
-	private long id;
+	private Long id;
 	private String modelo;
 	private String preco;
 }
